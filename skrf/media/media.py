@@ -623,10 +623,11 @@ class Media(object):
         n=nports
         result = self.match(n, **kwargs)
 
-        for f in range(self.frequency.npoints):
-            result.s[f,:,:] =  (2*1./n-1)*npy.eye(n) + \
-                    npy.sqrt((1-((2.-n)/n)**2)/(n-1))*\
-                    (npy.ones((n,n))-npy.eye(n))
+        splitter = (2 * 1. / n - 1) * npy.eye(n) + \
+            npy.sqrt((1 - ((2. - n) / n) ** 2) / (n - 1)) * \
+            (npy.ones((n, n)) - npy.eye(n))
+        result.s[:,] = splitter
+
         return result
 
 
