@@ -12,7 +12,7 @@ jobs:
       uses: urlstechie/urlchecker-action@master
       with:
         # A subfolder or path to navigate to in the present or cloned repository
-        subfolder: ., doc
+        subfolder: doc
 
         # A comma-separated list of file types to cover in the URL checks
         file_types: .md,.py,.rst
